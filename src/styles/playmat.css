@@ -1,0 +1,26 @@
+.playmat {
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(75px, 300px));
+  grid-gap: 1rem;
+  align-items: center;
+  justify-items: center;
+}
+
+@media (min-width: 720px) {
+  .playmat {
+    grid-template-columns: repeat(6, minmax(100px, 300px));
+  }
+}
+
+/* the below code makes the cards in the grid a perfect square */
+.playmat > div {
+  width: 100%;
+  position: relative;
+}
+
+.playmat > div::before {
+  content: '';
+  display: block;
+  padding-bottom: 100%;
+}

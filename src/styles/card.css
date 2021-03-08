@@ -3,13 +3,13 @@
   border: 1px solid black;
   border-radius: 5px;
   box-shadow: 0 1px 3px gray;
-  height: 200px;
-  width: 200px;
 }
 
 .card__back {
   height: 100%;
   cursor: pointer;
+  position: absolute;
+  top: 0;
 }
 
 .card__back > svg {
