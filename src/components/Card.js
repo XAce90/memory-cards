@@ -4,8 +4,8 @@ import '../styles/card.css';
 
 export default function Card(props) {
   return (
-    <div className="card">
-      <div className="card__back">
+    <div className={props.isRevealed ? 'card card--isRevealed' : 'card'}>
+      <div className="card__back" onClick={props.handleReveal}>
         <CardBack />
       </div>
       <div className="card__front">
@@ -17,6 +17,7 @@ export default function Card(props) {
 
 Card.propTypes = {
   isRevealed: PropTypes.bool.isRequired,
+  handleReveal: PropTypes.func.isRequired,
   symbol: PropTypes.any.isRequired, // todo: make this more specific
 }
 
