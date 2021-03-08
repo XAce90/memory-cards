@@ -3,11 +3,15 @@
   border: 1px solid black;
   border-radius: 5px;
   box-shadow: 0 1px 3px gray;
+  transition: 1s opacity;
+}
+
+.card__back {
+  cursor: pointer;
 }
 
 .card__back, .card__front {
   height: 100%;
-  cursor: pointer;
   position: absolute;
   top: 0;
 }
@@ -18,14 +22,26 @@
   color: red;
 }
 
+.card--isRevealed .card__back {
+  display: none;
+}
+
 .card__front {
   display: none;
 }
 
 .card--isRevealed .card__front {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
-.card--isRevealed .card__back {
-  display: none;
+.card__symbol {
+  font-size: 85px;
+  line-height: 0;
+}
+
+.card--isMatched {
+  opacity: 0;
 }

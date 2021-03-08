@@ -75,8 +75,9 @@ function App() {
           <Card 
             key={card.id}
             handleReveal={() => revealCard(card.id)}
-            symbol={card.symbol}
+            symbol={card.symbolId}
             isRevealed={card.isRevealed}
+            isMatched={card.isMatchFound}
           />
         ))}
       </div>
