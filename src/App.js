@@ -102,10 +102,11 @@ function App() {
     // when there is a mismatch, wait some time and then flip back
     setTimeout(() => {
       const newCardState = [...cardArray];
-      newCardState.filter(card => card1.id === card.id || card2.id === card.id);
-      newCardState.forEach(card => card.isRevealed = false);
+      newCardState
+        .filter(card => card1.id === card.id || card2.id === card.id)
+        .forEach(card => card.isRevealed = false);
       setCardArray(newCardState);
-    }, 500);
+    }, 800);
   }
 
   return (

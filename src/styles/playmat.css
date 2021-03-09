@@ -5,6 +5,7 @@
   grid-gap: 1rem;
   align-items: center;
   justify-items: center;
+  /* todo: perspective? */  
 }
 
 @media (min-width: 720px) {
@@ -16,7 +17,6 @@
 /* the below code makes the cards in the grid a perfect square */
 .playmat > div {
   width: 100%;
-  position: relative;
 }
 
 .playmat > div::before {

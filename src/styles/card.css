@@ -3,38 +3,42 @@
   border: 1px solid black;
   border-radius: 5px;
   box-shadow: 0 1px 3px gray;
-  transition: 1s opacity;
+  transition: transform 0.75s, opacity 1s;
+  transform-style: preserve-3d;
+  display: flex;
+}
+
+.card.card--isRevealed {
+  transform: rotateY(180deg);
+}
+
+.card__back, .card__front {
+  position: absolute;
+  backface-visibility: hidden;
+  height: 100%;
+  width: 100%;
 }
 
 .card__back {
   cursor: pointer;
 }
 
-.card__back, .card__front {
-  height: 100%;
-  position: absolute;
-  top: 0;
+.card--isMatched .card__back {
+  /* unsets pointer for disabled cards */
+  cursor: initial;
+}
+
+.card__front {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotateY(180deg);
 }
 
 .card__back > svg {
   height: 100%;
   width: auto;
   color: red;
-}
-
-.card--isRevealed .card__back {
-  display: none;
-}
-
-.card__front {
-  display: none;
-}
-
-.card--isRevealed .card__front {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
 }
 
 .card__symbol {
