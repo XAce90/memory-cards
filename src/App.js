@@ -46,14 +46,14 @@ function App() {
      });
      const fullCardArray = [...cards, ...dupArray];
 
-     // randomize!
+     // randomize! there are plenty of more sophisticated shuffle methods, but this works fine here
      const randomizedCardArray = fullCardArray.sort(() => Math.random() - 0.5);
 
      // of course we gotta update the app state...
      setCardArray(randomizedCardArray);
-  }, [])
+  }, []);
 
-  const revealCard = (id) => {
+  const handleCardClick = async (id) => {
     /**
      * When a facedown card is clicked, we must do the following:
      * 
@@ -63,9 +63,49 @@ function App() {
      * 4. If there is a match, both cards disappear.
      * 5. If there is no match, both cards flip back down.
      */
+
+    await revealCard(id)
+    
+    const isAnotherCardRevealed = cardArray.filter(card => card.isRevealed && card.id !== id).length > 0;
+    if(isAnotherCardRevealed) {
+      const [card1, card2] = cardArray.filter(card => card.isRevealed);
+      
+      if(doCardsMatch(card1, card2)) {
+        await handleMatch(card1, card2);
+      } else {
+        await handleMismatch(card1, card2);
+      }
+    }
+  }
+
+  const revealCard = async (id) => {
     const newCardState = [...cardArray];
     newCardState.find(card => card.id === id).isRevealed = true;
     setCardArray(newCardState);
+  }
+  
+
+  const doCardsMatch = (card1, card2) => {
+    if(card1.symbolId === card2.symbolId) return true;
+    return false;
+  }
+
+  const handleMatch = (card1, card2) => {
+    const newCardState = [...cardArray];
+    newCardState
+      .filter(card => card1.id === card.id || card2.id === card.id)
+      .forEach(card => card.isMatchFound = true);
+    setCardArray(newCardState);
+  }
+
+  const handleMismatch = async (card1, card2) => {
+    // when there is a mismatch, wait some time and then flip back
+    setTimeout(() => {
+      const newCardState = [...cardArray];
+      newCardState.filter(card => card1.id === card.id || card2.id === card.id);
+      newCardState.forEach(card => card.isRevealed = false);
+      setCardArray(newCardState);
+    }, 500);
   }
 
   return (
@@ -74,7 +114,7 @@ function App() {
         {cardArray.map(card => (
           <Card 
             key={card.id}
-            handleReveal={() => revealCard(card.id)}
+            handleReveal={() => handleCardClick(card.id)}
             symbol={card.symbolId}
             isRevealed={card.isRevealed}
             isMatched={card.isMatchFound}
