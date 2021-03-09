@@ -3,13 +3,16 @@
   border: 1px solid black;
   border-radius: 5px;
   box-shadow: 0 1px 3px gray;
-  transition: transform 0.75s, opacity 1s;
+  transition: transform 0.75s, opacity 0.75s;
   transform-style: preserve-3d;
   display: flex;
 }
 
-.card.card--isRevealed {
+.card:not(.card--isRevealed) {
   transform: rotateY(180deg);
+}
+.card.card--isMatched {
+  opacity: 0;
 }
 
 .card__back, .card__front {
@@ -21,6 +24,7 @@
 
 .card__back {
   cursor: pointer;
+  transform: rotateY(180deg);
 }
 
 .card--isMatched .card__back {
@@ -32,7 +36,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: rotateY(180deg);
 }
 
 .card__back > svg {
@@ -44,8 +47,4 @@
 .card__symbol {
   font-size: 85px;
   line-height: 0;
-}
-
-.card--isMatched {
-  opacity: 0;
 }

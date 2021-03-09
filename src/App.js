@@ -8,7 +8,7 @@ const cardExample = {
   symbol: 'Waterfall',
   symbolId: 4,        // id unique to each symbol (will appear twice in the card array)
   isRevealed: false,
-  isMatchFound: false,
+  isMatched: false,
 }
 
 function App() {
@@ -31,7 +31,7 @@ function App() {
          symbol: `Card Number ${i + 1}`,
          symbolId: i + 1,
          isRevealed: false,
-         isMatchFound: false,
+         isMatched: false,
        }
        cards[i] = obj;
      }
@@ -66,7 +66,7 @@ function App() {
 
     await revealCard(id)
     
-    const isAnotherCardRevealed = cardArray.filter(card => card.isRevealed && card.id !== id).length > 0;
+    const isAnotherCardRevealed = cardArray.filter(card => card.isRevealed && card.id !== id && !card.isMatched).length > 0;
     if(isAnotherCardRevealed) {
       const [card1, card2] = cardArray.filter(card => card.isRevealed);
       
@@ -90,12 +90,15 @@ function App() {
     return false;
   }
 
-  const handleMatch = (card1, card2) => {
-    const newCardState = [...cardArray];
-    newCardState
-      .filter(card => card1.id === card.id || card2.id === card.id)
-      .forEach(card => card.isMatchFound = true);
-    setCardArray(newCardState);
+  const handleMatch = async (card1, card2) => {
+    // when there is a match, wait some time before fading out
+    setTimeout(() => {
+      const newCardState = [...cardArray];
+      newCardState
+        .filter(card => card1.id === card.id || card2.id === card.id)
+        .forEach(card => card.isMatched = true);
+      setCardArray(newCardState);
+    }, 800);
   }
 
   const handleMismatch = async (card1, card2) => {
@@ -118,7 +121,7 @@ function App() {
             handleReveal={() => handleCardClick(card.id)}
             symbol={card.symbolId}
             isRevealed={card.isRevealed}
-            isMatched={card.isMatchFound}
+            isMatched={card.isMatched}
           />
         ))}
       </div>
