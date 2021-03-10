@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&family=Montserrat:ital,wght@1,800&display=swap');
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -13,7 +15,17 @@ code {
 }
 
 .App {
-  padding: 1rem;
+  padding: 0.5rem 1rem 1rem;
   max-width: 1024px;
   margin: auto;
+}
+
+.page-title {
+  font-family: 'Balsamiq Sans', cursive;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.card {
+  font-family: 'Montserrat', sans-serif;
 }

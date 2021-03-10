@@ -64,6 +64,7 @@ function App() {
      * 5. If there is no match, both cards flip back down.
      */
 
+    /* todo: after a card match, the next card to click always stays visible */
     await revealCard(id)
     
     const isAnotherCardRevealed = cardArray.filter(card => card.isRevealed && card.id !== id && !card.isMatched).length > 0;
@@ -114,6 +115,7 @@ function App() {
 
   return (
     <div className="App">
+      <h1 className="page-title">Casper's Memory Game</h1>
       <div className="playmat">
         {cardArray.map(card => (
           <Card 
