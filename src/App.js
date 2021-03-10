@@ -62,7 +62,6 @@ function App() {
      * 5. If there is no match, both cards flip back down.
      */
 
-    /* todo: after a card match, the next card to click always stays visible */
     await revealCard(id)
     
     const isAnotherCardRevealed = cardArray.filter(card => card.isRevealed && card.id !== id && !card.isMatched).length > 0;
@@ -97,6 +96,17 @@ function App() {
         .forEach(card => card.isMatched = true);
       setCardArray(newCardState);
     }, 800);
+
+    // after the cards fade out, revert 'isRevealed.'
+    // this fixes an issue where the first card you click after a match stays revealed.
+    // there's likely a better fix for this problem... but this works under the time constraints
+    setTimeout(() => {
+      const newCardState = [...cardArray];
+      newCardState
+        .filter(card => card1.id === card.id || card2.id === card.id)
+        .forEach(card => card.isRevealed = false);
+      setCardArray(newCardState);
+    }, 1200);
   }
 
   const handleMismatch = async (card1, card2) => {
