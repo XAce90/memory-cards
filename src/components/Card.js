@@ -27,7 +27,7 @@ export default function Card(props) {
 Card.propTypes = {
   isRevealed: PropTypes.bool.isRequired,
   handleReveal: PropTypes.func.isRequired,
-  symbol: PropTypes.any.isRequired, // todo: make this more specific
+  symbol: PropTypes.number.isRequired,
   isMatched: PropTypes.bool.isRequired,
 }
 

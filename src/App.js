@@ -5,8 +5,7 @@ import './styles/playmat.css';
 
 const cardExample = {
   id: 43123,          // unique id per card (will only appear once in the card array)
-  symbol: 'Waterfall',
-  symbolId: 4,        // id unique to each symbol (will appear twice in the card array)
+  symbol: 4,          // id unique to each symbol (will appear twice in the card array)
   isRevealed: false,
   isMatched: false,
 }
@@ -28,8 +27,7 @@ function App() {
      for(let i = 0; i < cards.length; i++) {
        const obj = {
          id: uuid(),
-         symbol: `Card Number ${i + 1}`,
-         symbolId: i + 1,
+         symbol: i + 1,
          isRevealed: false,
          isMatched: false,
        }
@@ -85,7 +83,6 @@ function App() {
     setCardArray(newCardState);
   }
   
-
   const doCardsMatch = (card1, card2) => {
     if(card1.symbolId === card2.symbolId) return true;
     return false;
@@ -121,7 +118,7 @@ function App() {
           <Card 
             key={card.id}
             handleReveal={() => handleCardClick(card.id)}
-            symbol={card.symbolId}
+            symbol={card.symbol}
             isRevealed={card.isRevealed}
             isMatched={card.isMatched}
           />
