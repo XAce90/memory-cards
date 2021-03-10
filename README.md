@@ -9,3 +9,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 * When the user clicks a card, it flips over to reveal its value.
 * When the user clicks the next card, its value is revealed and then compared against the other face up card. If they are equal, both cards disappear. If they are different, they flip back down.
 * The game is continued until there are no cards left.
+
+## Live Demo
+
+This game has been deployed to Netlify. You can check out the live demo here: https://caspers-memory-challenge.netlify.app.
