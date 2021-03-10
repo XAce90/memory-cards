@@ -3,12 +3,12 @@ import { v4 as uuid } from 'uuid';
 import Card from './components/Card';
 import './styles/playmat.css';
 
-const cardExample = {
-  id: 43123,          // unique id per card (will only appear once in the card array)
-  symbol: 4,          // id unique to each symbol (will appear twice in the card array)
-  isRevealed: false,
-  isMatched: false,
-}
+// const cardExample = {
+//   id: 43123,          // unique id per card (will only appear once in the card array)
+//   symbol: 4,          // id unique to each symbol (will appear twice in the card array)
+//   isRevealed: false,
+//   isMatched: false,
+// }
 
 function App() {
   const [cardArray, setCardArray] = useState([]);
