@@ -34,7 +34,7 @@ function App() {
        cards[i] = obj;
      }
 
-     // create a second array of the first array, but we must update each id (note: not the symbolId)
+     // create a second array of the first array, but we must update each id
      let dupArray = [];
 
      cards.forEach(card => {
@@ -84,7 +84,7 @@ function App() {
   }
   
   const doCardsMatch = (card1, card2) => {
-    if(card1.symbolId === card2.symbolId) return true;
+    if(card1.symbol === card2.symbol) return true;
     return false;
   }
 
