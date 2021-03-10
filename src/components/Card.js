@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { GiAbstract050 as CardBack } from 'react-icons/gi';
+import { GiAbstract031 as CardBack } from 'react-icons/gi';
 import '../styles/card.css';
 
 export default function Card(props) {

@@ -115,7 +115,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="page-title">Casper's Memory Game</h1>
+      <h1 className="page-title">Casper's Memory Challenge</h1>
       <div className="playmat">
         {cardArray.map(card => (
           <Card 
