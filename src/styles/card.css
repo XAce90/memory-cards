@@ -49,6 +49,29 @@
 }
 
 .card__symbol {
-  font-size: 85px;
+  /**
+   * I know responsive fonts are a thing these days.
+   * We should consider implementing responsive fonts here (instead of several break points)
+   * OR use an SVG symbol instead of text
+   */
+  font-size: 45px;
   line-height: 0;
+}
+
+@media (min-width: 500px) {
+  .card__symbol {
+    font-size: 65px;
+  }
+}
+
+@media (min-width: 600px) {
+  .card__symbol {
+    font-size: 75px;
+  }
+}
+
+@media (min-width: 720px) {
+  .card__symbol {
+    font-size: 85px;
+  }
 }

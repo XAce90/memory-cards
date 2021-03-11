@@ -16,6 +16,5 @@ This game has been deployed to Netlify. You can check out the live demo here: ht
 
 ## Future Features
 
-* Revisit the app on mobile emulators to see how the responsiveness works.
 * There is an issue with timing. If you quickly click three cards, all three will flip. You should only be able to flip over two cards at a time.
 * We should have a victory state. Once all the cards are successfully matched, show a victory screen with the option to play again.
