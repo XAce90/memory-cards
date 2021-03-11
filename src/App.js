@@ -106,7 +106,7 @@ function App() {
         .filter(card => card1.id === card.id || card2.id === card.id)
         .forEach(card => card.isRevealed = false);
       setCardArray(newCardState);
-    }, 1200);
+    }, 1600);
   }
 
   const handleMismatch = async (card1, card2) => {
