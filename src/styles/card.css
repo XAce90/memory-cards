@@ -20,6 +20,7 @@
   backface-visibility: hidden;
   height: 100%;
   width: 100%;
+  transform: rotateX(0deg); /* fixes issue in Firefox where back would not properly by hidden  */
 }
 
 .card__back {
